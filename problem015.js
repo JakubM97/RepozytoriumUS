@@ -1,19 +1,17 @@
 var Stack = [];
-var StackLength=0;
+Stack.MojLength = 0;
+
 Stack.push = function(a,b=1) {
-  for(var i=StackLength; i<StackLength+b-1;i++) {
+  for(var i=Stack.MojLength; i<Stack.MojLength+b-1;i++) {
     Stack[i]=null;
   }
-  StackLength=StackLength+b;
-  Stack[StackLength-1]=a;
+  Stack.MojLength=Stack.MojLength+b;
+  Stack[Stack.MojLength-1]=a;
 }
 
-Stack.pop = function(a) {
-  StackLength=StackLength-a;
-  var b=Stack[StackLength];
-  for (var i=StackLength; i<Stack.length; i++) {
-    Stack[i]=null;
-  }
-  
+Stack.pop = function(a=1) {
+  Stack.MojLength-=a;
+  var b=Stack[Stack.MojLength];
+  Stack.splice(Stack.MojLength,a);
   return b;
 }
